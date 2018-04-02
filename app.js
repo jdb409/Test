@@ -2,9 +2,6 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const express = require('express');
 const app = express();
-
-const nodemailer = require('nodemailer');
-const smtpTransport = require('nodemailer-smtp-transport');
 const bodyparser = require('body-parser');
 
 const PORT = process.env.PORT || 3000;
