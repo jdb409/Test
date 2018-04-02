@@ -17,26 +17,62 @@ app.get('/', (req, res, next) => {
 
 app.post('/', (req, res, next) => {
     let list =  {
-        "messages": [
-            {
-              "buttons": [
-                {
-                  "openUrlAction": {
-                    "url": "https://linkUrl.com"
+            "platform": "google",
+            "type": "custom_payload",
+            "payload": {
+              "google": {
+                "expectUserResponse": true,
+                "isSsml": false,
+                "noInputPrompts": [],
+                "richResponse": {
+                  "items": [
+                    {
+                      "simpleResponse": {
+                        "displayText": "hi",
+                        "textToSpeech": "hello"
+                      }
+                    }
+                  ],
+                  "suggestions": [
+                    {
+                      "title": "Say this"
+                    },
+                    {
+                      "title": "or this"
+                    }
+                  ]
+                },
+                "systemIntent": {
+                  "data": {
+                    "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+                    "listSelect": {
+                      "items": [
+                        {
+                          "optionInfo": {
+                            "key": "key1",
+                            "synonyms": [
+                              "key one"
+                            ]
+                          },
+                          "title": "must not be empty"
+                        },
+                        {
+                          "optionInfo": {
+                            "key": "key2",
+                            "synonyms": [
+                              "key two"
+                            ]
+                          },
+                          "title": "must not be empty, but unique, for some reason"
+                        }
+                      ]
+                    }
                   },
-                  "title": "AoG Card Link title"
+                  "intent": "actions.intent.OPTION"
                 }
-              ],
-              "formattedText": "AoG Card Description",
-              "image": {
-                "url": "http://imageUrl.com"
-              },
-              "platform": "google",
-              "subtitle": "AoG Card Subtitle",
-              "title": "AoG Card Title",
-              "type": "basic_card"
+              }
             }
-          ]
+          
     }
     res.json(list);
 })
