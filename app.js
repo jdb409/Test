@@ -17,62 +17,14 @@ app.get('/', (req, res, next) => {
 
 app.post('/', (req, res, next) => {
     let list =  {
-            "platform": "google",
-            "type": "custom_payload",
-            "payload": {
-              "google": {
-                "expectUserResponse": true,
-                "isSsml": false,
-                "noInputPrompts": [],
-                "richResponse": {
-                  "items": [
-                    {
-                      "simpleResponse": {
-                        "displayText": "hi",
-                        "textToSpeech": "hello"
-                      }
-                    }
-                  ],
-                  "suggestions": [
-                    {
-                      "title": "Say this"
-                    },
-                    {
-                      "title": "or this"
-                    }
-                  ]
-                },
-                "systemIntent": {
-                  "data": {
-                    "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
-                    "listSelect": {
-                      "items": [
-                        {
-                          "optionInfo": {
-                            "key": "key1",
-                            "synonyms": [
-                              "key one"
-                            ]
-                          },
-                          "title": "must not be empty"
-                        },
-                        {
-                          "optionInfo": {
-                            "key": "key2",
-                            "synonyms": [
-                              "key two"
-                            ]
-                          },
-                          "title": "must not be empty, but unique, for some reason"
-                        }
-                      ]
-                    }
-                  },
-                  "intent": "actions.intent.OPTION"
-                }
-              }
+        "messages": [
+            {
+              "destinationName": "Destination Name",
+              "platform": "google",
+              "type": "link_out_chip",
+              "url": "http://imageUrl.com"
             }
-          
+          ] 
     }
     res.json(list);
 })
