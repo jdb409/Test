@@ -19,12 +19,25 @@ app.post('/', (req, res, next) => {
     let list =  {
         "messages": [
             {
-              "destinationName": "Destination Name",
+              "buttons": [
+                {
+                  "openUrlAction": {
+                    "url": "https://linkUrl.com"
+                  },
+                  "title": "AoG Card Link title"
+                }
+              ],
+              "formattedText": "AoG Card Description",
+              "image": {
+                "url": "http://imageUrl.com"
+              },
               "platform": "google",
-              "type": "link_out_chip",
-              "url": "http://imageUrl.com"
+              "subtitle": "AoG Card Subtitle",
+              "title": "AoG Card Title",
+              "type": 3
             }
-          ] 
+          ]
+        
     }
     res.json(list);
 })
