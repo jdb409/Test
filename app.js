@@ -19,7 +19,7 @@ app.post('/', (req, res, next) => {
     let list =  {
         "messages": [
             {
-            "speech": topic,
+            "speech": 'sfdgfdsgds',
             "type": 0,
             "displayText":'asdfasdf'
             }
