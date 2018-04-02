@@ -19,11 +19,24 @@ app.post('/', (req, res, next) => {
     let list =  {
         "messages": [
             {
-            "speech": 'sfdgfdsgds',
-            "type": 0,
-            "displayText":'asdfasdf'
+              "buttons": [
+                {
+                  "openUrlAction": {
+                    "url": "https://linkUrl.com"
+                  },
+                  "title": "AoG Card Link title"
+                }
+              ],
+              "formattedText": "AoG Card Description",
+              "image": {
+                "url": "http://imageUrl.com"
+              },
+              "platform": "google",
+              "subtitle": "AoG Card Subtitle",
+              "title": "AoG Card Title",
+              "type": "basic_card"
             }
-        ]
+          ]
     }
     res.json(list);
 })
